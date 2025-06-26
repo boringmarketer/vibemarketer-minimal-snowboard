@@ -1,0 +1,96 @@
+{% comment %}
+  Minimal Snowboard Theme - Hero Section
+  Clean hero section with image, text, and CTA
+{% endcomment %}
+
+<section class="hero {% if section.settings.height == 'small' %}hero--small{% elsif section.settings.height == 'large' %}hero--large{% endif %}">
+  {% if section.settings.image != blank %}
+    <img 
+      src="{{ section.settings.image | image_url: width: 1920 }}" 
+      alt="{{ section.settings.image.alt | escape }}"
+      class="hero__image"
+      loading="eager"
+      width="1920"
+      height="1080"
+    >
+  {% endif %}
+  
+  <div class="hero__content">
+    <div class="container">
+      {% if section.settings.title != blank %}
+        <h1 class="hero__title">{{ section.settings.title }}</h1>
+      {% endif %}
+      
+      {% if section.settings.subtitle != blank %}
+        <p class="hero__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="btn btn--primary btn--large">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Welcome to our store"
+    },
+    {
+      "type": "text",
+      "id": "subtitle", 
+      "label": "Subtitle",
+      "default": "Find everything you need for your next adventure"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Section height",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium", 
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,231 @@
+{% comment %}
+  Minimal Snowboard Theme - Footer Section
+  Clean minimal footer with essential links and info
+{% endcomment %}
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__content">
+      <!-- Company Info -->
+      <div class="footer__section">
+        <h4>{{ shop.name }}</h4>
+        <p>Premium snowboard gear for riders who demand excellence on the mountain.</p>
+        {% if shop.email != blank %}
+          <p>
+            <a href="mailto:{{ shop.email }}" class="footer__contact-link">
+              {{ shop.email }}
+            </a>
+          </p>
+        {% endif %}
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__section">
+        <h4>Quick Links</h4>
+        <ul class="footer__links">
+          {% for link in linklists.footer.links %}
+            <li>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Customer Care -->
+      <div class="footer__section">
+        <h4>Customer Care</h4>
+        <ul class="footer__links">
+          <li><a href="{{ pages.shipping-returns.url | default: '/pages/shipping-returns' }}">Shipping & Returns</a></li>
+          <li><a href="{{ pages.size-guide.url | default: '/pages/size-guide' }}">Size Guide</a></li>
+          <li><a href="{{ pages.faq.url | default: '/pages/faq' }}">FAQ</a></li>
+          <li><a href="{{ pages.contact.url | default: '/pages/contact' }}">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer__section">
+        <h4>Stay Connected</h4>
+        <p>Get the latest updates on new arrivals and exclusive offers.</p>
+        
+        {% if settings.mailchimp_url != blank %}
+          <form action="{{ settings.mailchimp_url }}" method="post" class="footer__newsletter">
+            <div class="footer__newsletter-input">
+              <input 
+                type="email" 
+                name="EMAIL" 
+                placeholder="Enter your email"
+                required
+                class="footer__email-input"
+              >
+              <button type="submit" class="footer__subscribe-btn">
+                Subscribe
+              </button>
+            </div>
+          </form>
+        {% endif %}
+
+        <!-- Social Links -->
+        {% if settings.social_instagram_link != blank or settings.social_facebook_link != blank or settings.social_twitter_link != blank %}
+          <div class="footer__social">
+            {% if settings.social_instagram_link != blank %}
+              <a href="{{ settings.social_instagram_link }}" class="footer__social-link" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2H6a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M13 9.37a3 3 0 1 1-4.74 0 3 3 0 0 1 4.74 0Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="m14.5 5.5.01 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </a>
+            {% endif %}
+            {% if settings.social_facebook_link != blank %}
+              <a href="{{ settings.social_facebook_link }}" class="footer__social-link" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 2v16a2 2 0 0 1-2 2h-3v-7h2l1-3h-3V8a1 1 0 0 1 1-1h2V4h-2a4 4 0 0 0-4 4v2H8v3h2v7H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" fill="currentColor"/>
+                </svg>
+              </a>
+            {% endif %}
+            {% if settings.social_twitter_link != blank %}
+              <a href="{{ settings.social_twitter_link }}" class="footer__social-link" aria-label="Twitter">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.5 4.5c-.8.4-1.6.6-2.5.7 1-.6 1.7-1.5 2-2.6-.9.5-1.9.9-3 1.1-.9-.9-2.1-1.5-3.5-1.5-2.6 0-4.8 2.1-4.8 4.8 0 .4 0 .7.1 1-4-.2-7.5-2.1-9.9-5-.4.7-.6 1.5-.6 2.4 0 1.7.8 3.1 2.1 4-.8 0-1.5-.2-2.2-.6v.1c0 2.3 1.6 4.3 3.8 4.7-.4.1-.8.2-1.3.2-.3 0-.6 0-.9-.1.6 2 2.4 3.4 4.6 3.4-1.7 1.3-3.8 2.1-6.1 2.1-.4 0-.8 0-1.2-.1 2.2 1.4 4.8 2.2 7.5 2.2 9.1 0 14-7.5 14-14v-.6c1-.7 1.8-1.6 2.5-2.5Z" fill="currentColor"/>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__bottom-content">
+        <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="{{ pages.privacy-policy.url | default: '/pages/privacy-policy' }}">Privacy Policy</a>
+          <span>|</span>
+          <a href="{{ pages.terms-of-service.url | default: '/pages/terms-of-service' }}">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Additional footer-specific styles */
+  .footer__newsletter {
+    margin-top: 1.6rem;
+  }
+
+  .footer__newsletter-input {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .footer__email-input {
+    flex: 1;
+    padding: 1rem 1.2rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    background: #ffffff;
+    transition: border-color 0.2s ease;
+  }
+
+  .footer__email-input:focus {
+    outline: none;
+    border-color: #141414;
+  }
+
+  .footer__subscribe-btn {
+    padding: 1rem 2rem;
+    background: #141414;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .footer__subscribe-btn:hover {
+    background: #000000;
+    transform: translateY(-1px);
+  }
+
+  .footer__social {
+    display: flex;
+    gap: 1.6rem;
+    margin-top: 1.6rem;
+  }
+
+  .footer__social-link {
+    color: #525252;
+    transition: color 0.2s ease;
+  }
+
+  .footer__social-link:hover {
+    color: #141414;
+  }
+
+  .footer__contact-link {
+    color: #525252;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer__contact-link:hover {
+    color: #141414;
+  }
+
+  .footer__bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+  }
+
+  .footer__legal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer__legal a {
+    color: #525252;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer__legal a:hover {
+    color: #141414;
+  }
+
+  .footer__legal span {
+    color: #e5e7eb;
+  }
+
+  @media (max-width: 768px) {
+    .footer__newsletter-input {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer__subscribe-btn {
+      width: 100%;
+    }
+
+    .footer__bottom-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer__social {
+      justify-content: center;
+    }
+  }
+</style>

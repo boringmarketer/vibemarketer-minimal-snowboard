@@ -1,0 +1,234 @@
+{% comment %}
+  Minimal Snowboard Theme - Header Section
+  Clean, sticky navigation with logo and essential links
+{% endcomment %}
+
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+      <!-- Logo -->
+      <div class="header__logo">
+        {% if settings.logo != blank %}
+          {% assign logo_alt = settings.logo.alt | default: shop.name | escape %}
+          <a href="{{ routes.root_url }}" class="header__logo-link">
+            {{ settings.logo | image_url: width: 200 | image_tag: 
+              class: 'header__logo-image', 
+              alt: logo_alt,
+              loading: 'eager',
+              width: settings.logo.width,
+              height: settings.logo.height
+            }}
+          </a>
+        {% else %}
+          <a href="{{ routes.root_url }}" class="header__logo-text">
+            {{ shop.name }}
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="header__nav" role="navigation" aria-label="Main navigation">
+        {% for link in linklists.main-menu.links %}
+          <a href="{{ link.url }}" class="header__nav-link">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header__actions">
+        <!-- Search -->
+        <button type="button" class="header__search-toggle" aria-label="Open search">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <!-- Account -->
+        <a href="{{ routes.account_url }}" class="header__account" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 17v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <!-- Cart -->
+        <a href="{{ routes.cart_url }}" class="header__cart" aria-label="Cart ({{ cart.item_count }})">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          {% if cart.item_count > 0 %}
+            <span class="header__cart-count">{{ cart.item_count }}</span>
+          {% endif %}
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="header__menu-toggle" aria-label="Open menu">
+          <span class="header__hamburger"></span>
+          <span class="header__hamburger"></span>
+          <span class="header__hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="header__mobile-menu" data-mobile-menu>
+    <div class="header__mobile-menu-inner">
+      <nav class="header__mobile-nav" role="navigation" aria-label="Mobile navigation">
+        {% for link in linklists.main-menu.links %}
+          <a href="{{ link.url }}" class="header__mobile-nav-link">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Additional header-specific styles */
+  .header__logo-image {
+    max-height: 3.2rem;
+    width: auto;
+  }
+
+  .header__logo-text {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #141414;
+    text-decoration: none;
+  }
+
+  .header__search-toggle,
+  .header__account,
+  .header__cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #525252;
+    transition: color 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .header__search-toggle:hover,
+  .header__account:hover,
+  .header__cart:hover {
+    color: #141414;
+  }
+
+  .header__cart-count {
+    position: absolute;
+    top: -0.8rem;
+    right: -0.8rem;
+    background: #141414;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .header__hamburger {
+    display: block;
+    width: 2rem;
+    height: 0.2rem;
+    background: #525252;
+    margin: 0.3rem 0;
+    transition: all 0.2s ease;
+  }
+
+  .header__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .header__mobile-menu.active {
+    transform: translateX(0);
+  }
+
+  .header__mobile-menu-inner {
+    padding: 8rem 2rem 2rem;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .header__mobile-nav-link {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #141414;
+    text-decoration: none;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    transition: color 0.2s ease;
+  }
+
+  .header__mobile-nav-link:hover {
+    color: #525252;
+  }
+
+  @media (max-width: 767px) {
+    .header__nav {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .header__menu-toggle {
+      display: none;
+    }
+    
+    .header__mobile-menu {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.header__menu-toggle');
+    const mobileMenu = document.querySelector('.header__mobile-menu');
+    
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      // Close menu when clicking outside
+      mobileMenu.addEventListener('click', function(e) {
+        if (e.target === mobileMenu) {
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+
+      // Close menu on link click
+      const mobileLinks = document.querySelectorAll('.header__mobile-nav-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  });
+</script>

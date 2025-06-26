@@ -1,0 +1,149 @@
+{% comment %}
+  Minimal Snowboard Theme - 404 Error Page Template
+  Clean 404 page with helpful navigation
+{% endcomment %}
+
+<div class="error-page">
+  <div class="container">
+    <div class="error-page__content">
+      <div class="error-page__icon">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="50" stroke="currentColor" stroke-width="2"/>
+          <path d="M40 40l40 40M80 40L40 80" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      
+      <h1 class="error-page__title">404</h1>
+      <h2 class="error-page__subtitle">Page Not Found</h2>
+      <p class="error-page__description">
+        The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+      </p>
+      
+      <div class="error-page__actions">
+        <a href="{{ routes.root_url }}" class="btn btn--primary">
+          Go Home
+        </a>
+        <button type="button" onclick="history.back()" class="btn btn--secondary">
+          Go Back
+        </button>
+      </div>
+      
+      <div class="error-page__suggestions">
+        <h3>Try these instead:</h3>
+        <ul class="error-page__links">
+          <li><a href="{{ routes.root_url }}">Home</a></li>
+          <li><a href="{{ collections.all.url }}">All Products</a></li>
+          {% for link in linklists.main-menu.links limit: 3 %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .error-page {
+    padding: 8rem 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .error-page__content {
+    text-align: center;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+
+  .error-page__icon {
+    margin-bottom: 3.2rem;
+    color: #9ca3af;
+  }
+
+  .error-page__title {
+    font-size: 8rem;
+    font-weight: 700;
+    color: #141414;
+    margin-bottom: 1.6rem;
+    line-height: 1;
+  }
+
+  .error-page__subtitle {
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 2.4rem;
+  }
+
+  .error-page__description {
+    font-size: 1.8rem;
+    color: #525252;
+    line-height: 1.6;
+    margin-bottom: 4rem;
+  }
+
+  .error-page__actions {
+    display: flex;
+    gap: 1.6rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .error-page__suggestions {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid #f3f4f6;
+  }
+
+  .error-page__suggestions h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #141414;
+    margin-bottom: 2rem;
+  }
+
+  .error-page__links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 2.4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .error-page__links a {
+    color: #525252;
+    text-decoration: none;
+    font-size: 1.6rem;
+    transition: color 0.2s ease;
+  }
+
+  .error-page__links a:hover {
+    color: #141414;
+  }
+
+  @media (max-width: 768px) {
+    .error-page {
+      padding: 6rem 0;
+    }
+
+    .error-page__title {
+      font-size: 6rem;
+    }
+
+    .error-page__subtitle {
+      font-size: 2.4rem;
+    }
+
+    .error-page__actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .error-page__links {
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+  }
+</style>

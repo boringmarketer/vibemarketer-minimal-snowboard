@@ -1,0 +1,159 @@
+{% comment %}
+  Minimal Snowboard Theme - Featured Products Section
+  Clean grid of featured products
+{% endcomment %}
+
+<section class="section">
+  <div class="container">
+    {% if section.settings.title != blank %}
+      <h2 class="text-center">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    {% assign collection = collections[section.settings.collection] %}
+    {% if collection != blank and collection.products.size > 0 %}
+      <div class="grid grid--4-col collection-grid">
+        {% assign products_to_show = section.settings.products_to_show | default: 4 %}
+        {% for product in collection.products limit: products_to_show %}
+          <div class="product-card">
+            <div class="product-card__image">
+              {% if product.featured_media %}
+                <a href="{{ product.url }}">
+                  <img 
+                    src="{{ product.featured_media | image_url: width: 400 }}" 
+                    alt="{{ product.featured_media.alt | escape }}"
+                    loading="lazy"
+                    width="400"
+                    height="400"
+                  >
+                </a>
+              {% else %}
+                <div class="product-card__placeholder">
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="60" fill="#f3f4f6"/>
+                    <path d="M20 15h20v30H20z" fill="#e5e7eb"/>
+                  </svg>
+                </div>
+              {% endif %}
+            </div>
+            
+            <div class="product-card__content">
+              <h3 class="product-card__title">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h3>
+              
+              <div class="product-card__price">
+                {% if product.compare_at_price > product.price %}
+                  <span class="price price--sale">
+                    {{ product.price | money }}
+                  </span>
+                  <span class="price price--compare">
+                    {{ product.compare_at_price | money }}
+                  </span>
+                {% else %}
+                  <span class="price">
+                    {{ product.price | money }}
+                  </span>
+                {% endif %}
+              </div>
+
+              {% if product.available %}
+                <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" class="product-card__form">
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  <button type="submit" class="btn btn--primary btn--full-width">
+                    Add to Cart
+                  </button>
+                </form>
+              {% else %}
+                <button class="btn btn--secondary btn--full-width" disabled>
+                  Sold Out
+                </button>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if section.settings.show_view_all and collection.products.size > products_to_show %}
+        <div class="text-center" style="margin-top: 4rem;">
+          <a href="{{ collection.url }}" class="btn btn--secondary">
+            View All Products
+          </a>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="text-center">
+        <p>No products found in this collection.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .product-card__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1;
+    background: #f9fafb;
+  }
+
+  .product-card__form {
+    margin-top: 1.6rem;
+  }
+
+  .btn--full-width {
+    width: 100%;
+  }
+
+  .price--sale {
+    color: #dc2626;
+    font-weight: 600;
+  }
+
+  .price--compare {
+    color: #6b7280;
+    text-decoration: line-through;
+    font-size: 1.4rem;
+    margin-left: 0.8rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "label": "Number of products to show",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' button",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

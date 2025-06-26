@@ -1,0 +1,379 @@
+{% comment %}
+  Minimal Snowboard Theme - Product Page Template
+  Clean product detail page with gallery and info
+{% endcomment %}
+
+<div class="product-page">
+  <div class="container">
+    <div class="product-page__inner">
+      <!-- Product Gallery -->
+      <div class="product-gallery">
+        {% if product.media.size > 0 %}
+          <div class="product-gallery__main">
+            <img 
+              id="main-product-image"
+              src="{{ product.featured_media | image_url: width: 800 }}" 
+              alt="{{ product.featured_media.alt | escape }}"
+              loading="eager"
+              width="800"
+              height="800"
+            >
+          </div>
+          
+          {% if product.media.size > 1 %}
+            <div class="product-gallery__thumbs">
+              {% for media in product.media limit: 6 %}
+                <button 
+                  type="button" 
+                  class="product-gallery__thumb {% if forloop.first %}active{% endif %}"
+                  data-media-id="{{ media.id }}"
+                  data-media-url="{{ media | image_url: width: 800 }}"
+                >
+                  <img 
+                    src="{{ media | image_url: width: 120 }}" 
+                    alt="{{ media.alt | escape }}"
+                    loading="lazy"
+                    width="120"
+                    height="120"
+                  >
+                </button>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% else %}
+          <div class="product-gallery__placeholder">
+            <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="400" fill="#f3f4f6"/>
+              <path d="M150 120h100v160H150z" fill="#e5e7eb"/>
+            </svg>
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <h1 class="product-info__title">{{ product.title }}</h1>
+        
+        <div class="product-info__price">
+          {% if product.compare_at_price > product.price %}
+            <span class="price price--sale">{{ product.price | money }}</span>
+            <span class="price price--compare">{{ product.compare_at_price | money }}</span>
+          {% else %}
+            <span class="price">{{ product.price | money }}</span>
+          {% endif %}
+        </div>
+
+        {% if product.description != blank %}
+          <div class="product-info__description">
+            {{ product.description }}
+          </div>
+        {% endif %}
+
+        <!-- Product Form -->
+        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" class="product-form">
+          {% unless product.has_only_default_variant %}
+            <div class="product-variants">
+              {% for option in product.options_with_values %}
+                <div class="variant-option">
+                  <label for="option-{{ option.name | handleize }}">{{ option.name }}</label>
+                  <select 
+                    id="option-{{ option.name | handleize }}" 
+                    name="options[{{ option.name | escape }}]"
+                    class="variant-select"
+                  >
+                    {% for value in option.values %}
+                      <option value="{{ value | escape }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endfor %}
+            </div>
+          {% endunless %}
+
+          <div class="product-form__quantity">
+            <label for="quantity">Quantity</label>
+            <div class="quantity-input">
+              <button type="button" class="quantity-btn quantity-btn--minus">-</button>
+              <input 
+                type="number" 
+                id="quantity" 
+                name="quantity" 
+                value="1" 
+                min="1"
+                class="quantity-field"
+              >
+              <button type="button" class="quantity-btn quantity-btn--plus">+</button>
+            </div>
+          </div>
+
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          
+          {% if product.available %}
+            <button type="submit" class="btn btn--primary btn--large btn--full-width product-form__submit">
+              Add to Cart - {{ product.selected_or_first_available_variant.price | money }}
+            </button>
+          {% else %}
+            <button class="btn btn--secondary btn--large btn--full-width" disabled>
+              Sold Out
+            </button>
+          {% endif %}
+        </form>
+
+        <!-- Product Features -->
+        {% if product.metafields.custom.features %}
+          <div class="product-features">
+            <h3>Features</h3>
+            <ul>
+              {% assign features = product.metafields.custom.features | split: ',' %}
+              {% for feature in features %}
+                <li>{{ feature | strip }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .product-page {
+    padding: 4rem 0;
+  }
+
+  .product-page__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .product-gallery__main img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.8rem;
+  }
+
+  .product-gallery__thumbs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    margin-top: 1.6rem;
+  }
+
+  .product-gallery__thumb {
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  .product-gallery__thumb.active,
+  .product-gallery__thumb:hover {
+    border-color: #141414;
+  }
+
+  .product-gallery__thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .product-gallery__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9fafb;
+    border-radius: 0.8rem;
+    aspect-ratio: 1;
+  }
+
+  .product-info__title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1.6rem;
+    color: #141414;
+  }
+
+  .product-info__price {
+    margin-bottom: 2.4rem;
+  }
+
+  .product-info__price .price {
+    font-size: 2.4rem;
+    font-weight: 600;
+  }
+
+  .product-info__description {
+    margin-bottom: 3.2rem;
+    line-height: 1.6;
+    color: #525252;
+  }
+
+  .product-variants {
+    margin-bottom: 2.4rem;
+  }
+
+  .variant-option {
+    margin-bottom: 1.6rem;
+  }
+
+  .variant-option label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    color: #141414;
+  }
+
+  .variant-select {
+    width: 100%;
+    padding: 1.2rem 1.6rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .variant-select:focus {
+    outline: none;
+    border-color: #141414;
+  }
+
+  .product-form__quantity {
+    margin-bottom: 2.4rem;
+  }
+
+  .product-form__quantity label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    color: #141414;
+  }
+
+  .quantity-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.4rem;
+    width: fit-content;
+  }
+
+  .quantity-btn {
+    background: none;
+    border: none;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #525252;
+    transition: color 0.2s ease;
+  }
+
+  .quantity-btn:hover {
+    color: #141414;
+  }
+
+  .quantity-field {
+    border: none;
+    padding: 1.2rem;
+    width: 6rem;
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .quantity-field:focus {
+    outline: none;
+  }
+
+  .product-features {
+    margin-top: 3.2rem;
+    padding-top: 3.2rem;
+    border-top: 1px solid #f3f4f6;
+  }
+
+  .product-features h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.6rem;
+    color: #141414;
+  }
+
+  .product-features ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .product-features li {
+    padding: 0.8rem 0;
+    color: #525252;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .product-features li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .product-page__inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .product-info__title {
+      font-size: 2.4rem;
+    }
+
+    .product-gallery__thumbs {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
+
+<script>
+  // Product gallery functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const thumbs = document.querySelectorAll('.product-gallery__thumb');
+    const mainImage = document.getElementById('main-product-image');
+    
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        const newImageUrl = this.dataset.mediaUrl;
+        if (mainImage && newImageUrl) {
+          mainImage.src = newImageUrl;
+          
+          // Update active thumb
+          thumbs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+
+    // Quantity buttons
+    const minusBtn = document.querySelector('.quantity-btn--minus');
+    const plusBtn = document.querySelector('.quantity-btn--plus');
+    const quantityField = document.querySelector('.quantity-field');
+
+    if (minusBtn && plusBtn && quantityField) {
+      minusBtn.addEventListener('click', function() {
+        const currentValue = parseInt(quantityField.value);
+        if (currentValue > 1) {
+          quantityField.value = currentValue - 1;
+        }
+      });
+
+      plusBtn.addEventListener('click', function() {
+        const currentValue = parseInt(quantityField.value);
+        quantityField.value = currentValue + 1;
+      });
+    }
+  });
+</script>
