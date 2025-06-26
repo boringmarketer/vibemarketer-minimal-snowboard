@@ -3,9 +3,9 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "title": "Carve Your Path",
-        "subtitle": "Premium snowboard gear for the modern rider",
-        "button_text": "Shop Collection",
+        "title": "Ride Your Vibe",
+        "subtitle": "Premium boards and gear for riders who live for the mountain",
+        "button_text": "Shop Boards",
         "button_link": "/collections/all",
         "image": "",
         "height": "large"
@@ -14,7 +14,7 @@
     "featured_products": {
       "type": "featured-products",
       "settings": {
-        "title": "Featured Products",
+        "title": "Featured Boards",
         "collection": "all",
         "products_to_show": 4,
         "show_view_all": true
@@ -23,18 +23,30 @@
     "about": {
       "type": "text-with-image",
       "settings": {
-        "title": "Built for the Mountain",
-        "text": "<p>Every piece of gear is crafted with precision and tested by professional riders. From first-time riders to seasoned pros, we have everything you need to conquer the mountain.</p>",
-        "button_text": "Learn More",
+        "title": "Feel the Mountain",
+        "text": "<p>At VibeBoards, we craft premium snowboards for riders who understand that every run is a chance to connect with the mountain. From powder days to park sessions, our boards are built to amplify your vibe on every descent.</p>",
+        "button_text": "Our Story",
         "button_link": "/collections/all",
         "image": "",
         "layout": "image_first"
+      }
+    },
+    "powder_section": {
+      "type": "text-with-image",
+      "settings": {
+        "title": "Pure Powder Perfection",
+        "text": "<p>Experience the rush of untouched powder with boards designed for deep snow performance. Our powder-specific shapes and profiles deliver the float and flow you need for those legendary days.</p>",
+        "button_text": "Powder Boards",
+        "button_link": "/collections/all",
+        "image": "",
+        "layout": "text_first"
       }
     }
   },
   "order": [
     "hero",
     "featured_products", 
-    "about"
+    "about",
+    "powder_section"
   ]
 }

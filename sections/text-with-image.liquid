@@ -33,13 +33,24 @@
             width="600"
             height="400"
           >
+        {% elsif section.settings.title contains 'Powder' %}
+          <!-- Powder section gets the explosion image -->
+          <img 
+            src="{{ 'mattias-olsson-nQz49efZEFs-unsplash.jpg' | asset_url }}" 
+            alt="Snowboarder creating powder explosion"
+            loading="lazy"
+            width="600"
+            height="400"
+          >
         {% else %}
-          <div class="text-with-image__placeholder">
-            <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="300" fill="#f3f4f6"/>
-              <path d="M150 120h100v60H150z" fill="#e5e7eb"/>
-            </svg>
-          </div>
+          <!-- Default about section gets the sunset image -->
+          <img 
+            src="{{ 'philipp-kammerer-BOMJAHOLhFk-unsplash.jpg' | asset_url }}" 
+            alt="Snowboarder at sunset in the mountains"
+            loading="lazy"
+            width="600"
+            height="400"
+          >
         {% endif %}
       </div>
     </div>

@@ -1,6 +1,7 @@
 /* ===================================
-   MINIMAL SNOWBOARD THEME
+   VIBEBOARDS THEME
    Clean, Modern, Performance-First
+   Premium Snowboard Experience
    =================================== */
 
 /* Reset and Base Styles */
@@ -246,6 +247,10 @@ a:hover {
   overflow: hidden;
 }
 
+.hero--large {
+  min-height: 85vh;
+}
+
 .hero__image {
   position: absolute;
   top: 0;
@@ -261,7 +266,8 @@ a:hover {
   z-index: 2;
   max-width: 60rem;
   color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1px);
 }
 
 .hero__title {
