@@ -1,0 +1,90 @@
+{% comment %}
+  VibeBoards Announcement Bar
+  Optional promotional banner at top of site
+{% endcomment %}
+
+{% if section.settings.enable_announcement %}
+  <div class="announcement-bar">
+    <div class="container">
+      <div class="announcement-bar__content">
+        {% if section.settings.announcement_text != blank %}
+          <p class="announcement-bar__text">
+            {% if section.settings.announcement_link != blank %}
+              <a href="{{ section.settings.announcement_link }}" class="announcement-bar__link">
+                {{ section.settings.announcement_text }}
+              </a>
+            {% else %}
+              {{ section.settings.announcement_text }}
+            {% endif %}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<style>
+  .announcement-bar {
+    background: #6D28D9;
+    color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  .announcement-bar__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .announcement-bar__text {
+    margin: 0;
+    font-family: 'Sora', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .announcement-bar__link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .announcement-bar__link:hover {
+    color: #FACC15;
+  }
+
+  @media (max-width: 768px) {
+    .announcement-bar {
+      font-size: 1.3rem;
+      padding: 0.8rem 0;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_announcement",
+      "label": "Enable announcement bar",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "Free shipping on orders over $100!"
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Announcement link (optional)"
+    }
+  ]
+}
+{% endschema %}
