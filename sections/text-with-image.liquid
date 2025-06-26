@@ -27,11 +27,10 @@
       <div class="text-with-image__media">
         {% if section.settings.image != blank %}
           <img 
-            src="{{ section.settings.image | image_url: width: 600 }}" 
+            src="{{ section.settings.image | image_url: width: 800 }}" 
             alt="{{ section.settings.image.alt | escape }}"
             loading="lazy"
-            width="600"
-            height="400"
+            class="text-with-image__img"
           >
         {% elsif section.settings.title contains 'Powder' %}
           <!-- Powder section gets the action jump image -->
@@ -39,8 +38,7 @@
             src="{{ 'damiano-lingauri-OKBP1D8Wr4c-unsplash.jpg' | asset_url }}" 
             alt="Snowboarder jumping with powder and mountains"
             loading="lazy"
-            width="600"
-            height="400"
+            class="text-with-image__img"
           >
         {% else %}
           <!-- Default about section gets the sunset image -->
@@ -48,8 +46,7 @@
             src="{{ 'philipp-kammerer-BOMJAHOLhFk-unsplash.jpg' | asset_url }}" 
             alt="Snowboarder at sunset in the mountains"
             loading="lazy"
-            width="600"
-            height="400"
+            class="text-with-image__img"
           >
         {% endif %}
       </div>
@@ -87,20 +84,34 @@
     margin-bottom: 3.2rem;
   }
 
-  .text-with-image__media img {
-    width: 100%;
-    height: auto;
+  .text-with-image__media {
+    position: relative;
+    overflow: hidden;
     border-radius: 0.8rem;
+    aspect-ratio: 4/3;
+  }
+
+  .text-with-image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.8rem;
+    transition: transform 0.3s ease;
+  }
+
+  .text-with-image:hover .text-with-image__img {
+    transform: scale(1.02);
   }
 
   .text-with-image__placeholder {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #f9fafb;
     border-radius: 0.8rem;
-    min-height: 300px;
   }
 
   @media (max-width: 768px) {
