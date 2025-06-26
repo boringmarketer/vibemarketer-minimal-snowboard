@@ -34,29 +34,38 @@
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
-    <!-- Modern Typography -->
+    <!-- VibeBoards Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     {% style %}
       :root {
-        --font-body-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+        /* VibeBoards Typography */
+        --font-body-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
         --font-body-style: normal;
         --font-body-weight: 400;
         --font-body-weight-bold: 600;
 
-        --font-heading-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+        --font-heading-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
         --font-heading-style: normal;
         --font-heading-weight: 600;
 
-        --color-base-text: 20, 20, 20;
+        /* VibeBoards Color Palette */
+        --color-jet-black: 0, 0, 0;
+        --color-pure-white: 255, 255, 255;
+        --color-electric-purple: 109, 40, 217;
+        --color-sunburst-yellow: 250, 204, 21;
+        --color-ash-gray: 209, 213, 219;
+
+        /* Shopify Color Variables */
+        --color-base-text: 0, 0, 0;
         --color-base-background-1: 255, 255, 255;
         --color-base-background-2: 249, 250, 251;
         --color-base-solid-button-labels: 255, 255, 255;
-        --color-base-outline-button-labels: 20, 20, 20;
-        --color-base-accent-1: 20, 20, 20;
-        --color-base-accent-2: 107, 114, 128;
+        --color-base-outline-button-labels: 0, 0, 0;
+        --color-base-accent-1: 109, 40, 217;
+        --color-base-accent-2: 250, 204, 21;
         --color-base-outline-button-borders: 20, 20, 20;
 
         --payment-terms-background-color: rgb(255, 255, 255);
