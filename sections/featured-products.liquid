@@ -89,7 +89,7 @@
         {% for i in (1..4) %}
           <div class="product-card">
             <div class="product-card__image">
-              {% if forloop.index == 1 or forloop.index == 3 %}
+              {% if forloop.index == 1 %}
                 <img 
                   src="{{ 'vb1.png' | asset_url }}" 
                   alt="VibeBoards Mountain Series - Black & Purple"
@@ -97,10 +97,26 @@
                   width="400"
                   height="400"
                 >
-              {% else %}
+              {% elsif forloop.index == 2 %}
                 <img 
                   src="{{ 'vb2.png' | asset_url }}" 
                   alt="VibeBoards Sunburst Series - Gradient Design"
+                  loading="lazy"
+                  width="400"
+                  height="400"
+                >
+              {% elsif forloop.index == 3 %}
+                <img 
+                  src="{{ 'vb3.png' | asset_url }}" 
+                  alt="VibeBoards Rainbow Series - Spectrum Design"
+                  loading="lazy"
+                  width="400"
+                  height="400"
+                >
+              {% else %}
+                <img 
+                  src="{{ 'vb1.png' | asset_url }}" 
+                  alt="VibeBoards Mountain Series - Black & Purple"
                   loading="lazy"
                   width="400"
                   height="400"
@@ -115,17 +131,21 @@
                 {% elsif forloop.index == 2 %}
                   <a href="#">VibeBoards Sunburst Elite</a>
                 {% elsif forloop.index == 3 %}
-                  <a href="#">VibeBoards Shadow Rider</a>
+                  <a href="#">VibeBoards Spectrum Rider</a>
                 {% else %}
-                  <a href="#">VibeBoards Sunset Carver</a>
+                  <a href="#">VibeBoards Shadow Series</a>
                 {% endif %}
               </h3>
               
               <div class="product-card__price">
-                {% if forloop.index == 1 or forloop.index == 3 %}
+                {% if forloop.index == 1 %}
                   <span class="price">$549.00</span>
-                {% else %}
+                {% elsif forloop.index == 2 %}
                   <span class="price">$599.00</span>
+                {% elsif forloop.index == 3 %}
+                  <span class="price">$649.00</span>
+                {% else %}
+                  <span class="price">$549.00</span>
                 {% endif %}
               </div>
 
