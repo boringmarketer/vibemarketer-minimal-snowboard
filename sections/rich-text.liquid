@@ -1,0 +1,132 @@
+{% comment %}
+  Minimal Snowboard Theme - Rich Text Section
+  Simple content section with heading and text
+{% endcomment %}
+
+<section class="rich-text section">
+  <div class="container">
+    <div class="rich-text__content">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'heading' %}
+            {% if block.settings.heading != blank %}
+              <h2 class="rich-text__heading">{{ block.settings.heading }}</h2>
+            {% endif %}
+          {% when 'text' %}
+            {% if block.settings.text != blank %}
+              <div class="rich-text__text">{{ block.settings.text }}</div>
+            {% endif %}
+          {% when 'button' %}
+            {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+              <a href="{{ block.settings.button_link }}" class="btn btn--primary">
+                {{ block.settings.button_text }}
+              </a>
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .rich-text {
+    text-align: center;
+  }
+
+  .rich-text__content {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  .rich-text__heading {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 2.4rem;
+    color: #141414;
+  }
+
+  .rich-text__text {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: #525252;
+    margin-bottom: 3.2rem;
+  }
+
+  .rich-text__text p {
+    margin-bottom: 1.6rem;
+  }
+
+  @media (max-width: 768px) {
+    .rich-text__heading {
+      font-size: 2.4rem;
+    }
+
+    .rich-text__text {
+      font-size: 1.6rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Rich Text",
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Rich text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich Text",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

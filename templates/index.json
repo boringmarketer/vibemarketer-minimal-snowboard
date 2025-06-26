@@ -15,7 +15,7 @@
       "type": "featured-products",
       "settings": {
         "title": "Featured Products",
-        "collection": "featured",
+        "collection": "all",
         "products_to_show": 4,
         "show_view_all": true
       }
@@ -26,28 +26,15 @@
         "title": "Built for the Mountain",
         "text": "<p>Every piece of gear is crafted with precision and tested by professional riders. From first-time riders to seasoned pros, we have everything you need to conquer the mountain.</p>",
         "button_text": "Learn More",
-        "button_link": "/pages/about",
+        "button_link": "/collections/all",
         "image": "",
         "layout": "image_first"
-      }
-    },
-    "collections": {
-      "type": "collection-list",
-      "settings": {
-        "title": "Shop by Category",
-        "collections": [
-          "snowboards",
-          "boots",
-          "bindings",
-          "apparel"
-        ]
       }
     }
   },
   "order": [
     "hero",
     "featured_products", 
-    "about",
-    "collections"
+    "about"
   ]
 }
