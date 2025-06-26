@@ -9,8 +9,12 @@
       <h2 class="text-center">{{ section.settings.title }}</h2>
     {% endif %}
 
+    <!-- Always show VibeBoards sample products for now -->
+    {% comment %}
     {% assign collection = collections[section.settings.collection] %}
     {% if collection != blank and collection.products.size > 0 %}
+    {% endcomment %}
+    {% if false %}
       <div class="grid grid--4-col collection-grid">
         {% assign products_to_show = section.settings.products_to_show | default: 4 %}
         {% for product in collection.products limit: products_to_show %}
