@@ -20,8 +20,16 @@
             }}
           </a>
         {% else %}
-          <a href="{{ routes.root_url }}" class="header__logo-text">
-            VibeBoards
+          <!-- Default VibeBoards Logo -->
+          <a href="{{ routes.root_url }}" class="header__logo-link">
+            <img 
+              src="{{ 'vibeboards-logo.png' | asset_url }}" 
+              alt="VibeBoards - Premium Snowboard Gear"
+              class="header__logo-image"
+              loading="eager"
+              width="160"
+              height="50"
+            >
           </a>
         {% endif %}
       </div>
@@ -87,9 +95,20 @@
 
 <style>
   /* Additional header-specific styles */
+  .header__logo-link {
+    display: inline-block;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__logo-link:hover {
+    opacity: 0.8;
+  }
+
   .header__logo-image {
-    max-height: 3.2rem;
+    max-height: 4rem;
     width: auto;
+    height: auto;
+    object-fit: contain;
   }
 
   .header__logo-text {
@@ -187,6 +206,12 @@
   @media (max-width: 767px) {
     .header__nav {
       display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .header__logo-image {
+      max-height: 3.5rem;
     }
   }
 
