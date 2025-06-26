@@ -41,12 +41,24 @@
         "image": "",
         "layout": "text_first"
       }
+    },
+    "vibe_guides": {
+      "type": "text-with-image",
+      "settings": {
+        "title": "Vibe Guides",
+        "text": "<p>Master your mountain game with expert insights, technique tips, and local knowledge from pro riders. From beginner fundamentals to advanced tricks, our guides help you unlock your full potential and find your perfect riding vibe.</p>",
+        "button_text": "Explore Guides",
+        "button_link": "/pages/guides",
+        "image": "",
+        "layout": "image_first"
+      }
     }
   },
   "order": [
     "hero",
     "featured_products", 
     "about",
-    "powder_section"
+    "powder_section",
+    "vibe_guides"
   ]
 }

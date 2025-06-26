@@ -40,6 +40,14 @@
             loading="lazy"
             class="text-with-image__img"
           >
+        {% elsif section.settings.title contains 'Vibe Guides' %}
+          <!-- Vibe Guides section gets the carving image -->
+          <img 
+            src="{{ 'hamish-duncan-XO6FSH3H5CE-unsplash.jpg' | asset_url }}" 
+            alt="Snowboarder carving through fresh powder with expert technique"
+            loading="lazy"
+            class="text-with-image__img"
+          >
         {% else %}
           <!-- Default about section gets the sunset image -->
           <img 
