@@ -105,10 +105,14 @@
   }
 
   .header__logo-image {
-    max-height: 4rem;
+    max-height: 6rem;
     width: auto;
     height: auto;
     object-fit: contain;
+    filter: drop-shadow(0 0 0 white) contrast(1.1);
+    background: white;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
   }
 
   .header__logo-text {
@@ -211,7 +215,8 @@
 
   @media (max-width: 767px) {
     .header__logo-image {
-      max-height: 3.5rem;
+      max-height: 5rem;
+      padding: 0.4rem;
     }
   }
 
