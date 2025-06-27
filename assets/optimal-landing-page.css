@@ -75,84 +75,94 @@
   color: var(--slate-medium);
 }
 
-/* Typography classes */
-.snowboard-heading {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+/* Typography classes - Match VibeBoards homepage */
+.vibeboards-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--mountain-deep);
-  line-height: 1.1;
+  color: var(--vibeboards-black);
+  line-height: 1.3;
 }
 
-.snowboard-body {
-  font-family: 'Inter', sans-serif;
+.vibeboards-body {
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.6;
-  color: var(--slate-medium);
+  color: rgba(var(--color-jet-black), 0.75);
 }
 
-.text-mountain { color: var(--mountain-deep); }
-.text-energy { color: var(--energy-orange); }
-.text-snow { color: var(--snow-white); }
+.text-mountain { color: var(--vibeboards-black); }
+.text-accent { color: var(--vibeboards-purple); }
+.text-energy { color: var(--vibeboards-yellow); }
+.text-snow { color: var(--vibeboards-white); }
 
-/* Buttons */
+/* Buttons - Match VibeBoards homepage styling */
 .btn-snowboard-primary {
-  background: linear-gradient(135deg, var(--energy-orange) 0%, var(--energy-orange-dark) 100%);
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  background: var(--vibeboards-yellow);
+  color: var(--vibeboards-black);
+  font-family: var(--font-heading);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 16px 32px;
-  border-radius: 8px;
+  padding: 1.4rem 2.8rem;
+  border-radius: 0.6rem;
   border: none;
-  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.4rem;
+  min-height: 4.8rem;
 }
 
 .btn-snowboard-primary:hover {
+  background: var(--vibeboards-black);
+  color: var(--vibeboards-yellow);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.4);
-  background: var(--energy-orange-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-decoration: none;
-  color: white;
 }
 
 .btn-snowboard-secondary {
   background: transparent;
-  color: var(--mountain-deep);
-  border: 2px solid var(--mountain-deep);
-  font-family: 'Montserrat', sans-serif;
+  color: var(--vibeboards-purple);
+  border: 2px solid var(--vibeboards-purple);
+  font-family: var(--font-heading);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 14px 30px;
-  border-radius: 8px;
+  padding: 1.4rem 2.8rem;
+  border-radius: 0.6rem;
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  font-size: 1.4rem;
+  min-height: 4.8rem;
 }
 
 .btn-snowboard-secondary:hover {
-  background: var(--mountain-deep);
-  color: white;
-  transform: translateY(-1px);
+  background: var(--vibeboards-purple);
+  color: var(--vibeboards-white);
+  transform: translateY(-2px);
   text-decoration: none;
 }
 
-/* 1. HERO SECTION */
+/* 1. HERO SECTION - Match VibeBoards homepage hero */
 .hero-section {
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--background-secondary);
   position: relative;
   overflow: hidden;
 }
