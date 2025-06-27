@@ -1,51 +1,52 @@
 /* ===================================
    OPTIMAL LANDING PAGE STYLES
    Mobile-first responsive design
-   Using VibeMarketer brand colors & fonts
+   Using VibeBoards brand colors & fonts
    =================================== */
 
-/* Import existing brand variables */
+/* Import existing brand variables from VibeBoards theme */
 :root {
-  /* Mountain Blues */
-  --mountain-deep: #1a365d;
-  --mountain-mid: #2d4a63;
-  --mountain-light: #4a6fa5;
-  --ice-blue: #e6f3ff;
+  /* VibeBoards Brand Colors */
+  --color-jet-black: 0, 0, 0;
+  --color-pure-white: 255, 255, 255;
+  --color-electric-purple: 109, 40, 217;
+  --color-sunburst-yellow: 250, 204, 21;
+  --color-ash-gray: 209, 213, 219;
   
-  /* Snow Whites */
-  --powder-white: #fafbfc;
-  --snow-white: #ffffff;
-  --frost-white: #f1f5f9;
+  /* Brand Colors as CSS Variables */
+  --vibeboards-black: rgb(var(--color-jet-black));
+  --vibeboards-white: rgb(var(--color-pure-white));
+  --vibeboards-purple: rgb(var(--color-electric-purple));
+  --vibeboards-yellow: rgb(var(--color-sunburst-yellow));
+  --vibeboards-gray: rgb(var(--color-ash-gray));
   
-  /* Energy Orange (Brand Accent) */
-  --energy-orange: #ff6b35;
-  --energy-orange-light: #ff8c5a;
-  --energy-orange-dark: #e55a2b;
-  
-  /* Grays */
-  --slate-dark: #2d3748;
-  --slate-medium: #4a5568;
-  --slate-light: #a0aec0;
+  /* Background Colors */
+  --background-primary: rgb(var(--color-pure-white));
+  --background-secondary: #f9fafb;
+  --background-accent: rgb(var(--color-electric-purple));
   
   /* Gradients */
-  --mountain-gradient: linear-gradient(135deg, var(--mountain-deep) 0%, var(--mountain-mid) 50%, var(--mountain-light) 100%);
-  --snow-gradient: linear-gradient(180deg, var(--snow-white) 0%, var(--frost-white) 100%);
-  --powder-gradient: linear-gradient(45deg, var(--ice-blue) 0%, var(--powder-white) 100%);
+  --gradient-hero: linear-gradient(135deg, rgba(var(--color-jet-black), 0.8) 0%, rgba(var(--color-electric-purple), 0.6) 100%);
+  --gradient-accent: linear-gradient(135deg, rgb(var(--color-electric-purple)) 0%, rgb(var(--color-sunburst-yellow)) 100%);
+  --gradient-subtle: linear-gradient(180deg, rgb(var(--color-pure-white)) 0%, #f9fafb 100%);
+  
+  /* Typography */
+  --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
   
   /* Spacing */
   --section-padding: 60px 0;
   --container-padding: 20px;
-  --container-max-width: 1200px;
+  --container-max-width: 120rem;
 }
 
-/* Typography imports */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+/* Use existing VibeBoards fonts - no additional imports needed */
 
 /* Base styles */
 .optimal-landing-page {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
-  color: var(--slate-medium);
+  color: var(--vibeboards-black);
 }
 
 .container {
