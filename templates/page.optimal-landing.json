@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "optimal_landing": {
+      "type": "optimal-landing-page",
+      "settings": {
+        "hero_headline": "STOP WASTING MONEY ON GEAR THAT BREAKS",
+        "hero_subheadline": "The last snowboard setup you'll ever need - engineered for every terrain, built to last a lifetime, guaranteed to elevate your riding"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "optimal_landing"
+  ]
+}

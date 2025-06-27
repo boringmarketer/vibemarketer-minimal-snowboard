@@ -1,0 +1,783 @@
+{% comment %}
+  Optimal Long-Form Ecommerce Landing Page
+  Based on DTC best practices with PAS framework
+  Uses VibeMarketer snowboard brand styling
+{% endcomment %}
+
+{{ 'optimal-landing-page.css' | asset_url | stylesheet_tag }}
+
+<div class="optimal-landing-page">
+  
+  <!-- 1. Hero Section (Above-the-Fold) -->
+  <section class="hero-section section-mountain" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content animate-slide-in">
+          <div class="hero-trust-badges">
+            <img src="{{ 'trust-badge-1.png' | asset_url }}" alt="As seen in Outside Magazine" class="trust-badge">
+            <img src="{{ 'trust-badge-2.png' | asset_url }}" alt="5 Star Reviews" class="trust-badge">
+            <span class="trust-rating">⭐⭐⭐⭐⭐ 4.8/5 (2,847 reviews)</span>
+          </div>
+          
+          <h1 class="hero-headline snowboard-heading">
+            STOP WASTING MONEY ON<br>
+            <span class="text-energy">GEAR THAT BREAKS</span>
+          </h1>
+          
+          <h2 class="hero-subheadline snowboard-body">
+            The last snowboard setup you'll ever need - engineered for every terrain, 
+            built to last a lifetime, guaranteed to elevate your riding
+          </h2>
+          
+          <div class="hero-cta-container">
+            <a href="#offer" class="btn-snowboard-primary hero-cta">
+              GET YOUR LIFETIME SETUP NOW
+            </a>
+            <div class="hero-urgency">
+              🔥 LIMITED TIME: Save $400 + Free Shipping
+            </div>
+          </div>
+          
+          <div class="hero-trust-signals">
+            <span class="trust-item">✓ Lifetime Warranty</span>
+            <span class="trust-item">✓ 60-Day Risk-Free Trial</span>
+            <span class="trust-item">✓ Free Expert Setup</span>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <img src="{{ 'hero-snowboard-action.jpg' | asset_url }}" 
+               alt="Professional snowboarder carving powder with VibeMarketer setup" 
+               class="hero-image" loading="eager">
+          <div class="hero-video-overlay">
+            <button class="play-button" data-video-id="hero-demo">
+              ▶️ Watch 2-Min Demo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Problem/Need Statement -->
+  <section class="problem-section section-snow section-padding">
+    <div class="container">
+      <div class="problem-content text-center">
+        <h2 class="section-title snowboard-heading text-mountain">
+          TIRED OF GEAR THAT FAILS WHEN YOU NEED IT MOST?
+        </h2>
+        
+        <div class="problem-grid">
+          <div class="problem-item animate-fade-up">
+            <div class="problem-icon">💸</div>
+            <h3>Expensive Replacements</h3>
+            <p>Average rider spends $2,000+ every 2-3 years replacing broken gear</p>
+          </div>
+          
+          <div class="problem-item animate-fade-up">
+            <div class="problem-icon">❌</div>
+            <h3>Poor Performance</h3>
+            <p>Cheap boards warp, bindings break, boots lose support when conditions get tough</p>
+          </div>
+          
+          <div class="problem-item animate-fade-up">
+            <div class="problem-icon">😤</div>
+            <h3>Wasted Mountain Days</h3>
+            <p>Nothing ruins a powder day like equipment failure halfway down the mountain</p>
+          </div>
+        </div>
+        
+        <div class="problem-visual">
+          <img src="{{ 'broken-gear-collage.jpg' | asset_url }}" 
+               alt="Collage of broken snowboard equipment" 
+               class="problem-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Solution Introduction -->
+  <section class="solution-section section-powder section-padding">
+    <div class="container">
+      <div class="solution-grid">
+        <div class="solution-content">
+          <div class="solution-badge">THE SOLUTION</div>
+          <h2 class="snowboard-heading text-mountain">
+            INTRODUCING THE VIBE MARKETER<br>
+            <span class="text-energy">LIFETIME SETUP</span>
+          </h2>
+          
+          <p class="snowboard-body">
+            The only snowboard system engineered to last a lifetime. Built with aerospace-grade materials, 
+            backed by our unconditional lifetime warranty, and designed by pro riders who demand perfection.
+          </p>
+          
+          <div class="solution-usps">
+            <div class="usp-item">
+              <span class="usp-icon">🏔️</span>
+              <span>Works on ANY terrain - powder, ice, park, backcountry</span>
+            </div>
+            <div class="usp-item">
+              <span class="usp-icon">⚡</span>
+              <span>Carbon fiber core with titanium edges - unbreakable</span>
+            </div>
+            <div class="usp-item">
+              <span class="usp-icon">🎯</span>
+              <span>Precision-matched bindings and boots for perfect control</span>
+            </div>
+          </div>
+          
+          <a href="#offer" class="btn-snowboard-secondary">
+            SEE THE COMPLETE SETUP
+          </a>
+        </div>
+        
+        <div class="solution-visual">
+          <img src="{{ 'solution-product-hero.jpg' | asset_url }}" 
+               alt="VibeMarketer complete snowboard setup" 
+               class="solution-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Benefits & Features (Alternating Layout) -->
+  <section class="benefits-section section-padding">
+    
+    <!-- Benefit 1 -->
+    <div class="benefit-block section-snow">
+      <div class="container">
+        <div class="benefit-grid">
+          <div class="benefit-content">
+            <h3 class="snowboard-heading text-mountain">NEVER BUY ANOTHER BOARD</h3>
+            <p class="snowboard-body">
+              Our lifetime warranty isn't marketing - it's a promise. We've stress-tested 
+              our boards to 50,000+ runs. If it ever breaks, we replace it. No questions asked.
+            </p>
+            <div class="benefit-proof">
+              <img src="{{ 'stress-test-demo.gif' | asset_url }}" 
+                   alt="Stress testing demonstration" 
+                   class="benefit-gif">
+            </div>
+            <a href="#testimonials" class="btn-snowboard-secondary benefit-cta">
+              Read Customer Stories
+            </a>
+          </div>
+          <div class="benefit-visual">
+            <img src="{{ 'lifetime-warranty-visual.jpg' | asset_url }}" 
+                 alt="Lifetime warranty certificate" 
+                 class="benefit-image">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefit 2 -->
+    <div class="benefit-block section-powder">
+      <div class="container">
+        <div class="benefit-grid reverse">
+          <div class="benefit-visual">
+            <img src="{{ 'all-terrain-demo.jpg' | asset_url }}" 
+                 alt="Snowboard performing on different terrains" 
+                 class="benefit-image">
+          </div>
+          <div class="benefit-content">
+            <h3 class="snowboard-heading text-mountain">ONE BOARD, EVERY CONDITION</h3>
+            <p class="snowboard-body">
+              Stop carrying multiple boards. Our adaptive flex technology automatically 
+              adjusts to powder, ice, park features, and backcountry terrain.
+            </p>
+            <div class="terrain-indicators">
+              <div class="terrain-item">
+                <span class="terrain-icon">❄️</span>
+                <span>Powder: 9.8/10</span>
+              </div>
+              <div class="terrain-item">
+                <span class="terrain-icon">🧊</span>
+                <span>Ice: 9.6/10</span>
+              </div>
+              <div class="terrain-item">
+                <span class="terrain-icon">🏂</span>
+                <span>Park: 9.9/10</span>
+              </div>
+            </div>
+            <a href="#demo" class="btn-snowboard-secondary benefit-cta">
+              Watch Terrain Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefit 3 -->
+    <div class="benefit-block section-snow">
+      <div class="container">
+        <div class="benefit-grid">
+          <div class="benefit-content">
+            <h3 class="snowboard-heading text-mountain">PERFECT FIT, GUARANTEED</h3>
+            <p class="snowboard-body">
+              Our AI-powered sizing system ensures your boots fit like they were made for you. 
+              Plus, free adjustments for life if your preferences change.
+            </p>
+            <div class="fit-guarantee">
+              <div class="fit-feature">
+                <span class="fit-icon">📏</span>
+                <span>3D foot scanning technology</span>
+              </div>
+              <div class="fit-feature">
+                <span class="fit-icon">🔧</span>
+                <span>Free adjustments anytime</span>
+              </div>
+              <div class="fit-feature">
+                <span class="fit-icon">🎯</span>
+                <span>99.7% perfect fit rate</span>
+              </div>
+            </div>
+            <a href="#sizing" class="btn-snowboard-secondary benefit-cta">
+              Get Your Perfect Fit
+            </a>
+          </div>
+          <div class="benefit-visual">
+            <img src="{{ 'perfect-fit-demo.jpg' | asset_url }}" 
+                 alt="Custom boot fitting process" 
+                 class="benefit-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Social Proof & Authority -->
+  <section class="social-proof-section section-mountain section-padding" id="testimonials">
+    <div class="container">
+      <h2 class="section-title text-center text-snow">
+        JOIN 15,000+ RIDERS WHO TRUST VIBE MARKETER
+      </h2>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <blockquote>
+            "I've been through 4 boards in 6 years. This one has lasted 3 seasons 
+            and still rides like new. Best investment I've ever made."
+          </blockquote>
+          <div class="testimonial-author">
+            <img src="{{ 'testimonial-sarah.jpg' | asset_url }}" alt="Sarah M." class="author-photo">
+            <div class="author-info">
+              <strong>Sarah M.</strong>
+              <span>Whistler, BC • 127 days/season</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <blockquote>
+            "Took this setup to Japan, Colorado, and the backcountry. 
+            Performs flawlessly everywhere. The lifetime warranty is real."
+          </blockquote>
+          <div class="testimonial-author">
+            <img src="{{ 'testimonial-mike.jpg' | asset_url }}" alt="Mike R." class="author-photo">
+            <div class="author-info">
+              <strong>Mike R.</strong>
+              <span>Jackson Hole, WY • Pro Instructor</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <blockquote>
+            "My teenage son has put this board through hell. Still going strong 
+            after 2 years. Worth every penny."
+          </blockquote>
+          <div class="testimonial-author">
+            <img src="{{ 'testimonial-jennifer.jpg' | asset_url }}" alt="Jennifer L." class="author-photo">
+            <div class="author-info">
+              <strong>Jennifer L.</strong>
+              <span>Park City, UT • Weekend Warrior</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="authority-section">
+        <h3 class="authority-title text-snow">AS FEATURED IN</h3>
+        <div class="media-logos">
+          <img src="{{ 'logo-outside-magazine.png' | asset_url }}" alt="Outside Magazine" class="media-logo">
+          <img src="{{ 'logo-powder-magazine.png' | asset_url }}" alt="Powder Magazine" class="media-logo">
+          <img src="{{ 'logo-snowboarder-mag.png' | asset_url }}" alt="Snowboarder Magazine" class="media-logo">
+          <img src="{{ 'logo-freeskier.png' | asset_url }}" alt="Freeskier" class="media-logo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. How It Works/Usage -->
+  <section class="how-it-works-section section-snow section-padding">
+    <div class="container">
+      <h2 class="section-title text-center snowboard-heading text-mountain">
+        FROM ORDER TO MOUNTAIN IN 3 SIMPLE STEPS
+      </h2>
+      
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-visual">
+            <img src="{{ 'step-1-sizing.jpg' | asset_url }}" alt="Online sizing process" class="step-image">
+          </div>
+          <h3>Get Sized</h3>
+          <p>Complete our 3-minute sizing quiz or visit one of our fitting centers for 3D scanning</p>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-visual">
+            <img src="{{ 'step-2-custom-build.jpg' | asset_url }}" alt="Custom assembly process" class="step-image">
+          </div>
+          <h3>We Build It</h3>
+          <p>Each setup is hand-assembled by our certified technicians and tested before shipping</p>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-visual">
+            <img src="{{ 'step-3-ride.jpg' | asset_url }}" alt="Rider enjoying slopes" class="step-image">
+          </div>
+          <h3>Ride Forever</h3>
+          <p>Hit the mountain with confidence knowing you're covered by our lifetime warranty</p>
+        </div>
+      </div>
+      
+      <div class="how-it-works-cta text-center">
+        <a href="#offer" class="btn-snowboard-primary">START YOUR SETUP</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Offer/Pricing Options -->
+  <section class="offer-section section-powder section-padding" id="offer">
+    <div class="container">
+      <div class="offer-header text-center">
+        <h2 class="section-title snowboard-heading text-mountain">
+          CHOOSE YOUR LIFETIME SETUP
+        </h2>
+        <p class="offer-subtitle snowboard-body">
+          All packages include lifetime warranty, free shipping, and 60-day trial
+        </p>
+      </div>
+      
+      <div class="pricing-grid">
+        <!-- Essential Package -->
+        <div class="pricing-card">
+          <h3 class="package-name">ESSENTIAL</h3>
+          <div class="package-price">
+            <span class="original-price">$1,299</span>
+            <span class="sale-price">$899</span>
+            <span class="savings">Save $400</span>
+          </div>
+          <div class="package-includes">
+            <h4>Complete Setup Includes:</h4>
+            <ul>
+              <li>✓ All-Mountain Board (155cm-165cm)</li>
+              <li>✓ Performance Bindings</li>
+              <li>✓ Comfort Boots</li>
+              <li>✓ Lifetime Warranty</li>
+              <li>✓ Free Setup & Tuning</li>
+            </ul>
+          </div>
+          <div class="package-cta">
+            <button class="btn-snowboard-primary" data-package="essential">
+              GET ESSENTIAL SETUP
+            </button>
+            <div class="risk-reversal">60-day money-back guarantee</div>
+          </div>
+        </div>
+
+        <!-- Pro Package (Featured) -->
+        <div class="pricing-card featured">
+          <div class="featured-badge">MOST POPULAR</div>
+          <h3 class="package-name">PRO</h3>
+          <div class="package-price">
+            <span class="original-price">$1,899</span>
+            <span class="sale-price">$1,399</span>
+            <span class="savings">Save $500</span>
+          </div>
+          <div class="package-includes">
+            <h4>Everything in Essential PLUS:</h4>
+            <ul>
+              <li>✓ Carbon Fiber Reinforced Board</li>
+              <li>✓ Pro-Level Bindings</li>
+              <li>✓ High-Performance Boots</li>
+              <li>✓ Premium Helmet</li>
+              <li>✓ Complete Protection Kit</li>
+              <li>✓ Free Annual Tune-Ups</li>
+            </ul>
+          </div>
+          <div class="package-cta">
+            <button class="btn-snowboard-primary" data-package="pro">
+              GET PRO SETUP
+            </button>
+            <div class="risk-reversal">60-day money-back guarantee</div>
+          </div>
+        </div>
+
+        <!-- Elite Package -->
+        <div class="pricing-card">
+          <h3 class="package-name">ELITE</h3>
+          <div class="package-price">
+            <span class="original-price">$2,799</span>
+            <span class="sale-price">$1,999</span>
+            <span class="savings">Save $800</span>
+          </div>
+          <div class="package-includes">
+            <h4>Everything in Pro PLUS:</h4>
+            <ul>
+              <li>✓ Custom Graphic Design</li>
+              <li>✓ Championship Bindings</li>
+              <li>✓ Custom-Molded Boots</li>
+              <li>✓ Smart Tech Helmet</li>
+              <li>✓ Heated Gear Package</li>
+              <li>✓ Lifetime Concierge Service</li>
+            </ul>
+          </div>
+          <div class="package-cta">
+            <button class="btn-snowboard-primary" data-package="elite">
+              GET ELITE SETUP
+            </button>
+            <div class="risk-reversal">60-day money-back guarantee</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="offer-guarantees">
+        <div class="guarantee-item">
+          <span class="guarantee-icon">🛡️</span>
+          <span>Lifetime Warranty</span>
+        </div>
+        <div class="guarantee-item">
+          <span class="guarantee-icon">🚚</span>
+          <span>Free 2-Day Shipping</span>
+        </div>
+        <div class="guarantee-item">
+          <span class="guarantee-icon">↩️</span>
+          <span>60-Day Returns</span>
+        </div>
+        <div class="guarantee-item">
+          <span class="guarantee-icon">🔒</span>
+          <span>Secure Checkout</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Trust & Risk Reversal -->
+  <section class="trust-section section-snow section-padding">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-content">
+          <h2 class="snowboard-heading text-mountain">
+            ZERO RISK. MAXIMUM CONFIDENCE.
+          </h2>
+          <div class="trust-features">
+            <div class="trust-feature">
+              <div class="trust-icon">🛡️</div>
+              <div class="trust-text">
+                <h4>Lifetime Warranty</h4>
+                <p>If anything breaks, we replace it. No time limits, no questions asked.</p>
+              </div>
+            </div>
+            <div class="trust-feature">
+              <div class="trust-icon">📅</div>
+              <div class="trust-text">
+                <h4>60-Day Trial</h4>
+                <p>Take it to the mountain. If you're not 100% satisfied, return it for a full refund.</p>
+              </div>
+            </div>
+            <div class="trust-feature">
+              <div class="trust-icon">🔒</div>
+              <div class="trust-text">
+                <h4>Secure & Safe</h4>
+                <p>256-bit SSL encryption, fraud protection, and secure payment processing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trust-visual">
+          <img src="{{ 'trust-certificates.jpg' | asset_url }}" 
+               alt="Security and warranty certificates" 
+               class="trust-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FAQ Section -->
+  <section class="faq-section section-powder section-padding">
+    <div class="container">
+      <h2 class="section-title text-center snowboard-heading text-mountain">
+        FREQUENTLY ASKED QUESTIONS
+      </h2>
+      
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-question">
+            How does the lifetime warranty actually work?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>If any component breaks due to normal use, we replace it at no cost. Just contact our support team with photos, and we'll send a replacement within 48 hours. This covers manufacturing defects, normal wear, and even some user damage.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            What if the sizing isn't perfect?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We offer free size exchanges within your first year, and our sizing accuracy is 99.7%. If you're not completely comfortable, we'll make it right.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            How quickly will I receive my setup?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Standard delivery is 5-7 business days. Rush delivery (2-3 days) is available for $49. All setups are hand-assembled and tested before shipping.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I upgrade components later?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely! We offer trade-in credit toward upgrades, and your lifetime warranty transfers to new components.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Urgency & Scarcity -->
+  <section class="urgency-section section-mountain section-padding">
+    <div class="container">
+      <div class="urgency-content text-center">
+        <h2 class="urgency-title text-snow">
+          ⚡ SEASON LAUNCH SPECIAL ENDS SOON
+        </h2>
+        
+        <div class="countdown-timer" id="countdown">
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+        </div>
+        
+        <div class="urgency-details">
+          <div class="urgency-item">
+            <span class="urgency-icon">💰</span>
+            <span>Save up to $800</span>
+          </div>
+          <div class="urgency-item">
+            <span class="urgency-icon">🎁</span>
+            <span>Free gear upgrade</span>
+          </div>
+          <div class="urgency-item">
+            <span class="urgency-icon">📦</span>
+            <span>Free expedited shipping</span>
+          </div>
+        </div>
+        
+        <div class="stock-indicator">
+          <div class="stock-bar">
+            <div class="stock-fill" style="width: 23%"></div>
+          </div>
+          <p class="stock-text">Only <strong>23 Elite setups</strong> remaining at this price</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Final Reinforcement & CTA -->
+  <section class="final-cta-section section-snow section-padding">
+    <div class="container">
+      <div class="final-cta-content text-center">
+        <h2 class="snowboard-heading text-mountain">
+          YOUR LAST SNOWBOARD PURCHASE.<br>
+          <span class="text-energy">GUARANTEED.</span>
+        </h2>
+        
+        <div class="final-benefits">
+          <div class="final-benefit">
+            <span class="benefit-icon">♾️</span>
+            <span>Lifetime Warranty</span>
+          </div>
+          <div class="final-benefit">
+            <span class="benefit-icon">🏔️</span>
+            <span>All-Terrain Performance</span>
+          </div>
+          <div class="final-benefit">
+            <span class="benefit-icon">🎯</span>
+            <span>Perfect Fit Guarantee</span>
+          </div>
+        </div>
+        
+        <div class="final-cta-buttons">
+          <button class="btn-snowboard-primary final-cta-btn" data-scroll-to="offer">
+            CLAIM YOUR LIFETIME SETUP
+          </button>
+        </div>
+        
+        <div class="final-guarantee">
+          <p class="guarantee-text">
+            <strong>60-day money-back guarantee</strong> • Free shipping both ways • 
+            Expert support included • <strong>No risk, all reward</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- JavaScript for interactivity -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Smooth scrolling for CTAs
+  document.querySelectorAll('[data-scroll-to]').forEach(button => {
+    button.addEventListener('click', function() {
+      const target = document.getElementById(this.dataset.scrollTo);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+  
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', function() {
+      const answer = this.nextElementSibling;
+      const toggle = this.querySelector('.faq-toggle');
+      
+      if (answer.style.display === 'block') {
+        answer.style.display = 'none';
+        toggle.textContent = '+';
+      } else {
+        // Close all other answers
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+        document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
+        
+        answer.style.display = 'block';
+        toggle.textContent = '−';
+      }
+    });
+  });
+  
+  // Countdown timer
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const saleEnd = new Date(now + (7 * 24 * 60 * 60 * 1000)); // 7 days from now
+    const distance = saleEnd - now;
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+  }
+  
+  updateCountdown();
+  setInterval(updateCountdown, 60000); // Update every minute
+  
+  // Package selection
+  document.querySelectorAll('[data-package]').forEach(button => {
+    button.addEventListener('click', function() {
+      const packageType = this.dataset.package;
+      console.log('Selected package:', packageType);
+      
+      // Here you would integrate with Shopify cart API
+      // For now, we'll show an alert
+      alert(`Selected ${packageType} package! Integrating with Shopify cart...`);
+      
+      // Example Shopify integration:
+      // fetch('/cart/add.js', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({
+      //     id: getProductIdForPackage(packageType),
+      //     quantity: 1
+      //   })
+      // }).then(() => window.location.href = '/cart');
+    });
+  });
+  
+  // Scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.animate-fade-up, .animate-slide-in').forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Optimal Landing Page",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Landing Page Settings"
+    },
+    {
+      "type": "text",
+      "id": "hero_headline",
+      "label": "Hero Headline",
+      "default": "STOP WASTING MONEY ON GEAR THAT BREAKS"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subheadline",
+      "label": "Hero Subheadline",
+      "default": "The last snowboard setup you'll ever need - engineered for every terrain, built to last a lifetime, guaranteed to elevate your riding"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "url",
+      "id": "hero_video_url",
+      "label": "Hero Demo Video URL"
+    }
+  ]
+}
+{% endschema %}
